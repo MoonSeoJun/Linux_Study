@@ -73,3 +73,36 @@ int main()
 ```
 $gcc -o AddResult main.c Addfunc.o
 ```
+
+### 3. -D
+---
+사용 방법 : gcc -o [원하는 이름] -D[매크로 이름] [컴파일 할 파일]
+
+-D 옵션을 사용하면 매크로 상수를 옵션으로 정의할 수 있다.
+
+1. 코드 작성
+```
+// MecroEx.c
+#include <stdio.h>
+
+int main()
+{
+#ifdef TEST
+  printf("%d\n", TEST);
+#else
+  printf("Not define");
+#endif
+  return 0;
+}
+```
+
+2. 컴파일
+```
+$gcc -o PrintResult MecroEx.c
+```
+PrintResult 출력 : Not define
+
+```
+$gcc -o PrintResult -DTEST=8 MecroEx.c
+```
+PrintResult 출력 : 8
